@@ -1,0 +1,8 @@
+##  from: https://www.jianshu.com/p/8fc3cd032d3c
+
+# at server
+jupyter notebook --no-browser --port=8889
+
+# at PC
+ssh -N -f -L localhost:8888:localhost:8889 username@serverIP
+
