@@ -1,0 +1,15 @@
+reticulate::use_python("/usr/local/bin/python", required=T)
+library(reticulate)
+py_config()
+
+anndata <- import("anndata", convert = FALSE)
+adata <- anndata$AnnData(
+  X = t(GetAssayData(Neuron.seurat)),
+  obs = data.frame(Neuron.seurat@meta.data),
+  obsm  = list(
+    "X_pca" = Neuron.seurat[["pca"]]@cell.embeddings,
+    "X_umap" = Neuron.seurat[["umap"]]@cell.embeddings
+  )
+)
+anndata$AnnData$write(adata, 'Neuron.seurat.h5ad')
+
