@@ -1,4 +1,4 @@
-*change R location in /etc/rstudio/rserver.conf:
+* change R location in /etc/rstudio/rserver.conf:
 
 rsession-which-r=/netscr/chaozhang/miniconda3/envs/snapATAC/bin/R
 
